@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Manasik — Quran reader styles (loaded by index.html after style.css)
+   Markup is produced by js/quran.js; data/assets live in /quran (see README.md)
+   ========================================================================== */
+@font-face{font-family:"KFGQPC Hafs";src:url("../quran/fonts/UthmanicHafs-v-3.0.ttf") format("truetype");font-display:swap}
+.qr{direction:rtl}.qtb{position:sticky;top:-20px;z-index:5;background:var(--bg);margin:0 -20px 10px;padding:6px 20px 8px;border-bottom:1px solid var(--ln);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 10px}
+.qseg{display:flex;border:1px solid var(--ln);border-radius:999px;padding:3px;background:var(--sf)}.qseg button{border:0;background:none;padding:5px 12px;border-radius:999px;font-size:14px;color:var(--mu)}.qseg button.on{background:var(--ac);color:#fff}
+.qic{display:flex;gap:6px}.qr .ci{width:38px;height:38px}
+.qnv{flex:1 0 100%;display:flex;align-items:center;justify-content:center;gap:10px}.qgo{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--mu)}.qgo input{width:68px;font:inherit;font-size:17px;text-align:center;padding:5px;border:1px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--tx);direction:ltr}
+.qst{flex:1 0 100%;text-align:center;font-size:13px;color:var(--mu);margin-top:-2px}
+/* Mushaf page frame: ivory sheet, double gold rule */
+.qw,.qpage{position:relative;background:var(--qp,#fffdf6);border:2px solid var(--gd);border-radius:4px;box-shadow:0 6px 22px rgba(0,0,0,.08),inset 0 0 0 5px var(--qp,#fffdf6),inset 0 0 0 6px color-mix(in srgb,var(--gd) 70%,transparent);overflow:hidden;touch-action:pan-y}
+.qw{min-height:60vh}.qpage{padding:22px 18px;margin-bottom:6px}.qimg{display:block;width:100%;height:auto;opacity:0;transition:opacity .5s;mix-blend-mode:multiply}.qw.ok .qimg{opacity:1}.qld{position:absolute;inset:0;display:grid;place-items:center;color:#777;font-size:14px;pointer-events:none}.qw.ok .qld{display:none}
+.qb{position:absolute;inset-inline:1.5%;height:5.6%;transform:translateY(-50%);border:1px solid;border-radius:8px;cursor:pointer;mix-blend-mode:multiply}.qb.sl{border-style:dashed;pointer-events:none}
+/* verse text block inside a page */
+.qt{font-family:"KFGQPC Hafs","Amiri",serif;font-size:calc(27px*var(--az,1));line-height:2.35;text-align:justify;text-align-last:center;user-select:text}
+.qt .ay{border-radius:6px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}.qt .ay.sel{outline:1.5px dashed var(--ac);outline-offset:1px}.qt .am{color:var(--gd);white-space:nowrap}
+.qsh{margin:16px 0 8px;text-align:center;border:1.5px solid var(--gd);border-radius:12px;background:var(--acs);padding:4px 10px}.qsh span{font:700 clamp(20px,6vw,26px)/1.8 Amiri,serif;color:var(--ac)}
+.qbs{text-align:center;font-family:"KFGQPC Hafs","Amiri",serif;font-size:calc(26px*var(--az,1));line-height:2.2;margin:0 0 6px}
+.qmsg{text-align:center;color:var(--mu);padding:30px 10px}.qhint{margin:10px 0 0;text-align:center;font-size:12.5px;color:var(--mu)}
+.qba{position:sticky;bottom:-20px;z-index:4;background:var(--bg);margin:6px -20px -20px;padding:6px 20px 12px}.qsel{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:10px;box-shadow:var(--sh)}.qsel .row{display:flex;gap:8px}.qsel .btn{min-height:42px;font-size:15px;border-radius:12px}
+.qds{display:flex;justify-content:center;gap:12px;margin:0 0 10px}.qd{width:30px;height:30px;border-radius:50%;border:2px solid transparent;box-shadow:0 0 0 1px var(--ln);opacity:.85}.qd.on{border-color:var(--bg);box-shadow:0 0 0 2.5px var(--tx);opacity:1}
+.db.qs{max-height:84vh;overflow:auto;text-align:start;direction:inherit}.db.qs h3{text-align:center}.qls{margin:0 0 12px}.qrw{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--ln)}.qsw{width:14px;height:34px;border-radius:5px;flex:none}.qrn{flex:1;min-width:0;border:0;background:none;text-align:start;padding:0}.qrn b{display:block;font-size:15px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.qrn small{color:var(--mu);font-size:12px}
+.db .qn{font-size:12.5px;line-height:1.7}.db input[type=text]{direction:inherit;font-size:17px}
+:root[data-theme="dark"] .qimg{filter:invert(1) brightness(.88)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .qimg{filter:invert(1) brightness(.88)}}
+.qgo{white-space:nowrap}.qgo input{width:60px}.qnv{gap:8px}
+
+.qpn{text-align:center;margin:8px 0 12px}.qpn span{display:inline-grid;place-items:center;min-width:36px;height:36px;padding:0 6px;border:1.5px solid var(--gd);border-radius:50%;font:700 18px/1 Amiri,serif;color:var(--ac);background:var(--sf);box-shadow:0 0 0 3px color-mix(in srgb,var(--gd) 25%,transparent)}
+:root[data-theme="dark"]{--qp:#000}:root[data-theme="dark"] .qimg{mix-blend-mode:normal}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--qp:#000}:root:not([data-theme="light"]) .qimg{mix-blend-mode:normal}}
+:root[data-theme="dark"] .qb{mix-blend-mode:screen}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .qb{mix-blend-mode:screen}}
+.qerr{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}.qerr .qef{font-size:.85em;word-break:break-all}

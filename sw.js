@@ -1,0 +1,7 @@
+/* Manasik service worker (bump C on every release). App shell: stale-while-revalidate so updates are picked up on the next load. Quran files under /quran/ use the separate 'manasik-quran' cache (kept across updates); failed responses are never cached. */
+const C='manasik-v15',Q='manasik-quran',F=['./','index.html','css/style.css','css/quran.css','js/app.js','js/umrah.js','js/location.js','js/track.js','js/tasbeeh.js','js/quran.js','data/umrah.json','data/umrah.js','manifest.json','assets/icon.svg','assets/icon-192.png','assets/icon-512.png'];
+addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>Promise.all(F.map(u=>c.add(new Request(u,{cache:'reload'})).catch(()=>{})))).then(()=>skipWaiting())));
+addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==Q).map(x=>caches.delete(x)))).then(()=>clients.claim())));
+addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
+ if(u.pathname.includes('/quran/'))return e.respondWith(caches.match(r,{ignoreSearch:true}).then(h=>h||fetch(r).then(n=>{if(n.ok&&n.status===200){const c=n.clone();caches.open(Q).then(x=>x.put(r,c))}return n})));
+ e.respondWith(caches.open(C).then(c=>c.match(r).then(h=>{const f=fetch(r).then(n=>{if(n.ok)c.put(r,n.clone());return n}).catch(()=>h||(r.mode==='navigate'?c.match('index.html'):Response.error()));return h||f})))});

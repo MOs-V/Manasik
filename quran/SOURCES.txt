@@ -1,0 +1,14 @@
+Manasik — Quran reader sources
+
+TEXT + PAGE/AYAH LAYOUT
+  Dataset : quran-text (npm @quran.ws/text 0.1.0, https://github.com/quran-ws/quran-text), file data/hafs.json
+  Licence : CC BY 4.0 (dataset); the text and font are the King Fahd Quran Complex (KFGQPC) UthmanicHafs v3.0
+  Provenance recorded in the dataset: UthmanicHafs-v-3.0.zip, sha256 cdec7341b7c684e7b8dd469c4b68988914d2784e924c7e6cbb9cb4b57c24f013
+  Checks run for this app: 6,236 ayahs, each ends exactly once; page 300 starts at 18:54 (matches the page image).
+  quran/data/quran.json is a mechanical re-arrangement of that file (per page: surah banners, ayah text with its printed signs, end-of-ayah marks). Nothing was generated or edited.
+FONT
+  quran/fonts/UthmanicHafs-v-3.0.ttf — KFGQPC HAFS Uthmanic Script (publisher: https://fonts.qurancomplex.gov.sa/), unmodified.
+PAGE IMAGES
+  604 Madinah Mushaf pages (Hafs) from the GitHub repository GovarJabbar/Quran-PNG (2600x4206 PNG).
+  Only converted here: flattened onto white, resized to 900 px wide, saved as grayscale WebP (quran/img/NNN.webp). The repository states no licence;
+  the mushaf itself is the work of the King Fahd Quran Complex, Madinah. Confirm redistribution terms before publishing.
